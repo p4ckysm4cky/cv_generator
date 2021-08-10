@@ -11,12 +11,15 @@ class App extends Component{
     super()
     this.state = {
         firstName: "First Name",
-        lastName : "Last Name"
+        lastName : "Last Name",
+        phoneNumber: "",
+        email: "",
+        education: []
     }
     this.handleChange = this.handleChange.bind(this)
   }
   handleChange(e) {
-    console.log(this.state)
+    console.log(this.state) // remove this when finished
     this.setState({
         [e.target.name]: e.target.value
     })
@@ -26,8 +29,8 @@ class App extends Component{
     return(
       <Router>
         <div>
-          <Link to="/">Modify</Link>
-          <Link to="/preview">Preview</Link>
+          <Link to="/"> Modify </Link>
+          <Link to="/preview"> Preview </Link>
         </div>
         <Switch>
           <Route exact path="/">
