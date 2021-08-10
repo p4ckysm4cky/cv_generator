@@ -7,8 +7,11 @@ class WorkInput extends Component {
         this.props = props
         this.handleChange = props.handleChange
         this.modifyEducation = props.modifyEducation
+        this.delEducation = props.delEducation
         this.handleList = this.handleList.bind(this)
     }
+    
+    // This is used to modify the educationArray when there are changes being made to the input box
     handleList(e) {
         const id = this.props.education.key
         console.log(this.props.education)
@@ -36,13 +39,16 @@ class WorkInput extends Component {
                     type="text" 
                     placeholder="DDDD-DDDD"
                     value={this.props.education.eduDuration}
+                    onChange={this.handleList}
                 />
                 <label htmlFor="eduDuration">Description</label>
                 <textarea
                     name="eduDescription"
                     placeholder="Brief information on course, and grade achieved."
                     value={this.props.education.eduDescription}
+                    onChange={this.handleList}
                 />
+                <button onClick={() => {this.delEducation(this.props.education.key)}}>Remove Education</button>
             </div>
         )
     }

@@ -19,8 +19,10 @@ class App extends Component{
     this.handleChange = this.handleChange.bind(this)
     this.addEducation = this.addEducation.bind(this)
     this.modifyEducation = this.modifyEducation.bind(this)
+    this.delEducation = this.delEducation.bind(this)
   }
 
+  // Generating ID for educationArray
   generateUniqueID() {
     return Math.floor(Math.random() * Date.now())
   }
@@ -37,7 +39,7 @@ class App extends Component{
 
 
 
-  // Method for adding education to the educationArray
+  // Method for adding education object to the educationArray
   addEducation() {
     console.log(this.state.educationArray)
     // strat I found to clone an array
@@ -53,7 +55,7 @@ class App extends Component{
     })
   }
 
-  // Modify an array of objects from child :)
+  // Modify an array of objects from child component :)
   modifyEducation(id, newEducation) {
     const tempArray = this.state.educationArray.map((x) => x)
     const idIndex = tempArray.find(x => x.key === id)
@@ -62,6 +64,15 @@ class App extends Component{
       educationArray: tempArray
     })
 
+  }
+
+  // delete object from educationArray
+  delEducation(id) {
+    const tempArray = this.state.educationArray.filter(x => x.key !== id)
+    this.setState({
+      educationArray: tempArray
+    })
+    
   }
 
   
@@ -79,6 +90,7 @@ class App extends Component{
               state={this.state}
               addEducation={this.addEducation}
               modifyEducation={this.modifyEducation}
+              delEducation={this.delEducation}
             />
           </Route>
           <Route exact path="/preview">

@@ -9,6 +9,7 @@ class EditForm extends Component {
         this.handleChange = props.handleChange
         this.addEducation = props.addEducation
         this.modifyEducation = props.modifyEducation
+        this.delEducation = props.delEducation
     }
 
 
@@ -20,6 +21,7 @@ class EditForm extends Component {
             key={education.key}
             education={education}
             modifyEducation={this.modifyEducation}
+            delEducation={this.delEducation}
         />)
 
         return(

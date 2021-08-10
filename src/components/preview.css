@@ -1,0 +1,51 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page {
+    color: black;
+    font-family:'Times New Roman', Times, serif;
+    width: 800px;
+}
+
+.nameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact p{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.workSection {
+    align-self: flex-start;
+}
+
+.eduDisplay p{
+    margin-top: 5px;
+
+}
+
+.eduDisplayTop {
+    display: flex;
+}
+
+
+.eduDisplayTop .date {
+    align-self: center;
+    margin-left: auto;
+}
+
+.eduDisplay p {
+    margin: 4px;
+}

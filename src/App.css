@@ -40,6 +40,10 @@
   height: 100px;
 }
 
+.eduInput button {
+  display: block;
+}
+
 .structure > button {
   font-family: monospace;
 }
