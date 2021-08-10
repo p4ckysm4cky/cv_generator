@@ -8,12 +8,19 @@ class EditForm extends Component {
         this.props = props
         this.handleChange = props.handleChange
         this.addEducation = props.addEducation
+        this.modifyEducation = props.modifyEducation
     }
 
-    
+
+
     
     render() {
-        const eduContainer = this.props.state.educationArray.map(education => <EducationInput/>)
+        const eduContainer = this.props.state.educationArray.map(education => 
+        <EducationInput
+            key={education.key}
+            education={education}
+            modifyEducation={this.modifyEducation}
+        />)
 
         return(
             <div className="structure">

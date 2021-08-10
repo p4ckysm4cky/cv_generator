@@ -18,7 +18,13 @@ class App extends Component{
     }
     this.handleChange = this.handleChange.bind(this)
     this.addEducation = this.addEducation.bind(this)
+    this.modifyEducation = this.modifyEducation.bind(this)
   }
+
+  generateUniqueID() {
+    return Math.floor(Math.random() * Date.now())
+  }
+
 
 
   // Used for dealing with input boxes
@@ -29,12 +35,15 @@ class App extends Component{
     })
   }
 
+
+
   // Method for adding education to the educationArray
   addEducation() {
     console.log(this.state.educationArray)
     // strat I found to clone an array
-    const tempArray = this.state.educationArray.map(x => x);
+    const tempArray = this.state.educationArray.map(x => x)
     tempArray.push({
+        key: this.generateUniqueID(),
         eduName:"",
         eduDuration:"",
         eduDescription:""    
@@ -42,6 +51,17 @@ class App extends Component{
     this.setState({
       educationArray: tempArray
     })
+  }
+
+  // Modify an array of objects from child :)
+  modifyEducation(id, newEducation) {
+    const tempArray = this.state.educationArray.map((x) => x)
+    const idIndex = tempArray.find(x => x.key === id)
+    tempArray[idIndex] = newEducation
+    this.setState({
+      educationArray: tempArray
+    })
+
   }
 
   
@@ -58,6 +78,7 @@ class App extends Component{
               handleChange={this.handleChange} 
               state={this.state}
               addEducation={this.addEducation}
+              modifyEducation={this.modifyEducation}
             />
           </Route>
           <Route exact path="/preview">
