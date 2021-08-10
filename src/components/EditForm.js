@@ -7,11 +7,14 @@ class EditForm extends Component {
         super()
         this.props = props
         this.handleChange = props.handleChange
+        this.addEducation = props.addEducation
     }
 
     
     
     render() {
+        const eduContainer = this.props.state.educationArray.map(education => <EducationInput/>)
+
         return(
             <div className="structure">
                 <input 
@@ -49,8 +52,10 @@ class EditForm extends Component {
                     placeholder="email@example.com"
                     onChange={this.handleChange}
                 />
+                
+                <button onClick={() => this.addEducation()}>Add Education</button>
 
-                <EducationInput/>
+                {eduContainer}
 
 
 

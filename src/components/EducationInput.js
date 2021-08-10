@@ -12,20 +12,20 @@ class WorkInput extends Component {
         return (
             <div className="eduInput">
 
-                <label for="eduName">Education Name</label>
+                <label htmlFor="eduName">Education Name</label>
                 <input 
                     name="eduName"
                     type="text" 
                 />
-                <label for="eduDuration">Duration</label>
+                <label htmlFor="eduDuration">Duration</label>
                 <input 
                     name="eduDuration"
                     type="text" 
                     placeholder="DDDD-DDDD"
                 />
-                <label for="eduDuration">Duration</label>
+                <label htmlFor="eduDuration">Description</label>
                 <textarea
-                    name="eduDuration"
+                    name="eduDescription"
                     placeholder="Brief information on course, and grade achieved."
                 />
             </div>

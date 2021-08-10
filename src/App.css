@@ -26,10 +26,20 @@
   margin: 10px;
   padding: 20px;
   border-style: solid;
-  color: rgb(73, 73, 73);
+  border-color: rgb(128, 128, 128);
 }
 
-.eduInput input, label, textarea{
+.eduInput input, label{
   display:block;
   font-size: 20px;
+  padding: 4px;
+}
+
+.eduInput textarea {
+  width: 300px;
+  height: 100px;
+}
+
+.structure > button {
+  font-family: monospace;
 }

@@ -14,16 +14,36 @@ class App extends Component{
         lastName : "Last Name",
         phoneNumber: "",
         email: "",
-        education: []
+        educationArray: []
     }
     this.handleChange = this.handleChange.bind(this)
+    this.addEducation = this.addEducation.bind(this)
   }
-  handleChange(e) {
+
+
+  // Used for dealing with input boxes
+  handleChange(e) {    
     console.log(this.state) // remove this when finished
     this.setState({
         [e.target.name]: e.target.value
     })
-}
+  }
+
+  // Method for adding education to the educationArray
+  addEducation() {
+    console.log(this.state.educationArray)
+    // strat I found to clone an array
+    const tempArray = this.state.educationArray.map(x => x);
+    tempArray.push({
+        eduName:"",
+        eduDuration:"",
+        eduDescription:""    
+    })
+    this.setState({
+      educationArray: tempArray
+    })
+  }
+
   
   render() {
     return(
@@ -34,7 +54,11 @@ class App extends Component{
         </div>
         <Switch>
           <Route exact path="/">
-            <EditForm handleChange={this.handleChange} state={this.state}/>
+            <EditForm 
+              handleChange={this.handleChange} 
+              state={this.state}
+              addEducation={this.addEducation}
+            />
           </Route>
           <Route exact path="/preview">
             <Preview {...this.state}/>
