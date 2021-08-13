@@ -13,11 +13,10 @@ class WorkInput extends Component {
     
     // This is used to modify the educationArray when there are changes being made to the input box
     handleList(e) {
-        const id = this.props.education.key
         console.log(this.props.education)
         const educationCopy = this.props.education
         educationCopy[e.target.name] = e.target.value
-        this.modifyEducation(id, educationCopy)
+        this.modifyEducation(educationCopy)
     }
 
 

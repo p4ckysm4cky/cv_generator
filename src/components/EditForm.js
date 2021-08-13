@@ -16,11 +16,11 @@ class EditForm extends Component {
 
     
     render() {
-        const eduContainer = this.props.state.educationArray.map(education => 
+        const eduContainer = this.props.state.educationArray.map((education) => 
         <EducationInput
             key={education.key}
             education={education}
-            modifyEducation={this.modifyEducation}
+            modifyEducation={educationCopy => this.modifyEducation(education.key, educationCopy)}
             delEducation={this.delEducation}
         />)
 
@@ -62,7 +62,7 @@ class EditForm extends Component {
                     onChange={this.handleChange}
                 />
                 
-                <button onClick={() => this.addEducation()}>Add Education</button>
+                <button onClick={this.addEducation}>Add Education</button>
 
                 {eduContainer}
 

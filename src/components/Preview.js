@@ -10,6 +10,7 @@ class Preview extends Component {
 
     render() {
         const eduSection = this.state.educationArray.map(education => <EduDisplay
+        key={education.key}
         education={education}        
         />)
 
